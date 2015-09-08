@@ -1,0 +1,13 @@
+/var/log/bitnami/access_log  /var/log/bitnami/error_log
+/var/log/bitnami/production.log {
+        compress
+        missingok
+        notifempty
+        copytruncate
+        olddir /var/log/archive
+        sharedscripts
+        postrotate
+                /sbin/service itnami-redmine restart > /dev/null 2>/dev/null || true
+        endscript
+}
+
