@@ -12,6 +12,6 @@
         rotate 7
         postrotate
                 /opt/redemine/ctlscript.sh restart > /dev/null 2> /dev/null || true
-                /bin/mv /var/log/archive/*.gz /var/redmine3/ > /dev/null 2> /dev/null || true
+                /bin/mv /var/log/archive/*.gz /var/redmine3/logarchive > /dev/null 2> /dev/null || true
         endscript
 }
