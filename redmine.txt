@@ -1,13 +1,17 @@
 /var/log/bitnami/access_log  /var/log/bitnami/error_log
-/var/log/bitnami/production.log {
+/var/log/bitnami/production.log
+/opt/redmine/mysql/data/mysqld.log  {
+        daily
         compress
+        dateext
         missingok
         notifempty
         copytruncate
         olddir /var/log/archive
         sharedscripts
+        rotate 7
         postrotate
-                /sbin/service itnami-redmine restart > /dev/null 2>/dev/null || true
+                /opt/redemine/ctlscript.sh restart > /dev/null 2> /dev/null || true
+                /bin/mv /var/log/archive/*.gz /var/redmine3/ > /dev/null 2> /dev/null || true
         endscript
 }
-
